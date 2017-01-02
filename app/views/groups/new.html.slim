@@ -1,0 +1,17 @@
+h1 New group
+
+== form_for(@group) do |f|
+
+  div
+    == f.label :name
+    == f.text_field :name
+
+    div.user_fields
+      == f.fields_for :user do |u|
+        == u.label :name
+        == u.text_field :name
+
+    == link_to_add_fields("Ajouter", f, :users)
+
+  == f.submit
+
